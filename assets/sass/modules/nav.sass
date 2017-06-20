@@ -1,0 +1,39 @@
+.navbar-default
+  border-color: transparent
+  background-color: #fff
+  .navbar-brand
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif
+    color: #4d4d50
+    &:hover, &:focus, &:active, &.active
+      color: $blue
+  .navbar-collapse
+    border-color: rgba(255, 255, 255, 0.02)
+  .navbar-toggle
+    border-color: $blue
+    background-color: $blue
+    .icon-bar
+      background-color: #fff
+    &:hover, &:focus
+      background-color: $blue
+
+.navbar-fixed-top.navbar-shrink .nav li a
+  color: #4d4d50
+
+.navbar-default
+  .nav li a
+    text-transform: uppercase
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-weight: 400
+    letter-spacing: 1px
+    color: #4d4d50
+    &:hover, &:focus
+      outline: 0
+      color: $blue
+  &.navbar-shrink .navbar-nav > .active > a
+    border-radius: 0
+    color: $blue
+    background-color: transparent
+  .navbar-nav > .active > a
+    &:hover, &:focus
+      color: #fff
+      background-color: $blue

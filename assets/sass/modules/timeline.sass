@@ -1,0 +1,89 @@
+.timeline
+  position: relative
+  padding: 0
+  list-style: none
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 40px
+    width: 2px
+    margin-left: -1.5px
+    background-color: #f1f1f1
+  > li
+    position: relative
+    margin-bottom: 50px
+    min-height: 50px
+    &:before
+      content: " "
+      display: table
+    &:after
+      content: " "
+      display: table
+      clear: both
+    .timeline-panel
+      float: right
+      position: relative
+      width: 100%
+      padding: 0 20px 0 100px
+      text-align: left
+      &:before
+        right: auto
+        left: -15px
+        border-right-width: 15px
+        border-left-width: 0
+      &:after
+        right: auto
+        left: -14px
+        border-right-width: 14px
+        border-left-width: 0
+    .timeline-image
+      z-index: 100
+      position: absolute
+      left: 0
+      width: 80px
+      height: 80px
+      margin-left: 0
+      border: 7px solid #f1f1f1
+      border-radius: 100%
+      text-align: center
+      color: #fff
+      background-color: $blue
+      h4
+        margin-top: 12px
+        font-size: 10px
+        line-height: 14px
+      span.ico
+        margin-top: 2px
+        font-size: 3.2em
+        display: inline-block
+    &.timeline-inverted > .timeline-panel
+      float: right
+      padding: 0 20px 0 100px
+      text-align: left
+      &:before
+        right: auto
+        left: -15px
+        border-right-width: 15px
+        border-left-width: 0
+      &:after
+        right: auto
+        left: -14px
+        border-right-width: 14px
+        border-left-width: 0
+    &:last-child
+      margin-bottom: 0
+  .timeline-heading
+    h4
+      margin-top: 0
+      color: inherit
+    h2
+      margin-top: 30px
+      color: inherit
+    h4.subheading
+      text-transform: none
+      color: $blue
+  .timeline-body >
+    p, ul
+      margin-bottom: 0

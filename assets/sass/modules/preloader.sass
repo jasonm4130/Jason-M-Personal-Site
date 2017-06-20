@@ -1,0 +1,52 @@
+#loader
+  background: #ffffff
+  bottom: 0
+  height: 100%
+  left: 0
+  position: fixed
+  right: 0
+  top: 0
+  width: 100%
+  z-index: 9999
+
+.loaderBars
+  height: 50px
+  width: 70px
+  left: 50%
+  top: 50%
+  margin-left: -25px
+  margin-top: -25px
+  position: absolute
+  text-align: center
+
+.bar
+  background-color: $blue
+  border: 1px solid $blue
+  float: left
+  height: 33px
+  margin-left: 2px
+  width: 9px
+  opacity: 0.1
+  animation-name: bounceG
+  animation-duration: 1.5s
+  animation-iteration-count: infinite
+  animation-direction: linear
+  transform: scale(0.7)
+
+.bar1
+  animation-delay: 0.45s
+
+.bar2
+  animation-delay: 0.6s
+
+.bar3
+  animation-delay: 0.75s
+
+@keyframes bounceG
+  0%
+    transform: scale(1.2)
+    opacity: 1
+
+  100%
+    transform: scale(0.7)
+    opacity: 0.1
