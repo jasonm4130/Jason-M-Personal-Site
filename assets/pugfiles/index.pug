@@ -413,14 +413,17 @@ html(lang='en')
             h3.section-subheading.text-dark Lorem ipsum dolor sit amet consectetur.
         .row
           .col-lg-12
-            form#contactForm(name='sentMessage', novalidate='', action="https://formspree.io/jasonm4130@gmail.com", method="POST")
+            form#contactForm(name='sentMessage', novalidate='')
               .row
                 .col-md-7.wow.fadeInUp.animated
                   .form-group
-                    input#name.form-control(type='text', name="name", placeholder='Your Name', required='', data-validation-required-message='Please enter your name.')
+                    input#name.form-control(type='text', placeholder='Your Name', required='', data-validation-required-message='Please enter your name.')
                     p.help-block.text-danger
                   .form-group
-                    input#email.form-control(type='email', name="_replyto", placeholder='Your Email', required='', data-validation-required-message='Please enter your email address.')
+                    input#email.form-control(type='email', placeholder='Your Email', required='', data-validation-required-message='Please enter your email address.')
+                    p.help-block.text-danger
+                  .form-group
+                    input#phone.form-control(type='tel', placeholder='Your Phone', required='', data-validation-required-message='Please enter your phone number.')
                     p.help-block.text-danger
                   .form-group
                     textarea#message.form-control(placeholder='Your Message', required='', data-validation-required-message='Please enter a message.')
