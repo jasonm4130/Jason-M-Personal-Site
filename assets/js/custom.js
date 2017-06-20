@@ -71,22 +71,22 @@ $('.counter').waypoint(function() {
     var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
         
     $('.total-number-1').animateNumber({
-            number: 1650, //change value here
+            number: 925, //change value here
             numberStep: comma_separator_number_step
     }, 2000);
         
     $('.total-number-2').animateNumber({
-            number: 216, //change value here
+            number: 56, //change value here
             numberStep: comma_separator_number_step
     }, 2000);
         
     $('.total-number-3').animateNumber({
-            number: 142, //change value here
+            number: 42, //change value here
             numberStep: comma_separator_number_step
     }, 2000);
         
     $('.total-number-4').animateNumber({
-            number: 28, //change value here
+            number: 28500, //change value here
             numberStep: comma_separator_number_step
     }, 2000);
     
