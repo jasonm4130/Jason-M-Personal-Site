@@ -16,6 +16,7 @@ gulp.task('sass', function(){
         .pipe(sourcemaps.write())
         .pipe(autoprefixer({browsers: ['last 2 versions', '> 5%', 'Firefox ESR']}))
         .pipe(gulp.dest('assets/css'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('browser-sync', function(){
@@ -48,7 +49,6 @@ gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
     gulp.watch("assets/pugfiles/**/*.pug", ["pug"]);
     gulp.watch("assets/js/**/*.js", browserSync.reload);
     gulp.watch("./*.html", browserSync.reload);
-    gulp.watch("assets/css/*.css", browserSync.reload);
     gulp.watch("assets/js/**/*.js", browserSync.reload);
 });
 
