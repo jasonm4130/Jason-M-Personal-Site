@@ -4,6 +4,10 @@ var browserSync = require('browser-sync');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var pug = require('gulp-pug');
+var runSequence = require('run-sequence');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 gulp.task('sass', function(){
     gulp.src('assets/sass/*.sass')
@@ -28,12 +32,26 @@ gulp.task('pug', function(){
     .pipe(gulp.dest('./'))
 });
 
-gulp.task('default', ['pug', 'sass', 'browser-sync'], function(){
+gulp.task('scripts', function() {
+  return gulp.src(['assets/js/jquery-1.11.1.js', 'assets/js/bootstrap.min.js', 'assets/js/jquery.easing.min.js', 'assets/js/jquery.easypiechart.js', 'assets/js/classie.js', 'assets/js/cbpAnimatedHeader.js', 'assets/js/waypoints.min.js', 'assets/js/jquery.animateNumber.min.js', 'assets/js/wow.min.js', 'assets/js/jqBootstrapValidation.js', 'assets/js/contact_me.js'])
+  .pipe(sourcemaps.init())
+    .pipe(concat('scripts.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('assets/js/'))
+    .pipe(rename('scripts.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('assets/js/'))
+});
+
+gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
     gulp.watch(["assets/sass/**/*.sass", "assets/sass/**/*.css"], ["sass"]);
     gulp.watch("assets/pugfiles/**/*.pug", ["pug"]);
     gulp.watch("assets/js/**/*.js", browserSync.reload);
     gulp.watch("./*.html", browserSync.reload);
     gulp.watch("assets/css/*.css", browserSync.reload);
+    gulp.watch("assets/js/**/*.js", browserSync.reload);
 });
 
-gulp.task
+gulp.task('build', function(done){
+  runSequence(['pug', 'sass'], ['scripts']);
+});
