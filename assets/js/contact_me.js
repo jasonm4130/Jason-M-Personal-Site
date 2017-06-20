@@ -18,7 +18,7 @@ $(function() {
             }
             $.ajax({
                 url: "https://formspree.io/jasonm4130@gmail.com",
-                type: "POST",
+                method: "POST",
                 data: {
                     name: name,
                     email: email,

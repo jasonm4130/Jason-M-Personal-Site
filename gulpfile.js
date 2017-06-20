@@ -42,12 +42,13 @@ gulp.task('scripts', function() {
     .pipe(rename('scripts.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('assets/js/'))
+    browserSync.reload();
 });
 
 gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
     gulp.watch(["assets/sass/**/*.sass", "assets/sass/**/*.css"], ["sass"]);
     gulp.watch("assets/pugfiles/**/*.pug", ["pug"]);
-    gulp.watch("assets/js/**/*.js", browserSync.reload);
+    gulp.watch(["assets/js/**/*.js", "assets/js/*.js"], ["scripts"]);
     gulp.watch("./*.html", browserSync.reload);
     gulp.watch("assets/js/**/*.js", browserSync.reload);
 });
