@@ -34,7 +34,7 @@ gulp.task('pug', function(){
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['assets/js/jquery-1.11.1.js', 'assets/js/bootstrap.min.js', 'assets/js/jquery.easing.min.js', 'assets/js/jquery.easypiechart.js', 'assets/js/classie.js', 'assets/js/cbpAnimatedHeader.js', 'assets/js/waypoints.min.js', 'assets/js/jquery.animateNumber.min.js', 'assets/js/wow.min.js', 'assets/js/jqBootstrapValidation.js'])
+  return gulp.src(['assets/js/jquery-1.11.1.js', 'assets/js/bootstrap.min.js', 'assets/js/jquery.easing.min.js', 'assets/js/jquery.easypiechart.js', 'assets/js/classie.js', 'assets/js/cbpAnimatedHeader.js', 'assets/js/waypoints.min.js', 'assets/js/jquery.animateNumber.min.js', 'assets/js/wow.min.js', 'assets/js/jqBootstrapValidation.js', 'assets/js/contact_me.js'])
   .pipe(sourcemaps.init())
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.write())
