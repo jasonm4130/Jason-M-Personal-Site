@@ -1,8 +1,9 @@
 section#contact
   background-color: #28353e
-  background-image: url(../img/bg-portfolio.jpg)
+  background-image: linear-gradient(transparentize(#28353e,0.05), transparentize(#28353e,0.05)), url("../img/bg-contact.jpg")
   background-position: center
   background-repeat: no-repeat
+  background-size: cover
   .section-heading
     color: #fff
   .form-group
@@ -27,7 +28,7 @@ section#contact
   .text-danger
     color: #e74c3c
   .form-text
-    color: #BFBFBF
+    color: #fff
     margin-top: 50px
     i
       color: #fff
@@ -38,3 +39,6 @@ section#contact
       display: inline-block
       padding-bottom: 10px
       margin-bottom: 16px
+  .btn
+    &:hover
+      transform: scale(1.1)
