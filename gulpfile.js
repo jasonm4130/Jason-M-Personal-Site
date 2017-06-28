@@ -42,8 +42,6 @@ gulp.task('scripts', function() {
     .pipe(rename('scripts.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js/'))
-    gulp.src('assets/js/**/*.js')
-    .pipe(gulp.dest('_site/assets/js'));
     browserSync.reload();
 });
 
@@ -62,6 +60,11 @@ gulp.task('pdf-copy', function() {
     .pipe(gulp.dest('_site/assets'));
 });
 
+gulp.task('js-copy', function() {
+    gulp.src('assets/js/custom.js')
+    .pipe(gulp.dest('_site/assets/js'));
+});
+
 gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
     gulp.watch(["assets/sass/**/*.sass", "assets/sass/**/*.css"], ["sass"]);
     gulp.watch("assets/pugfiles/**/*.pug", ["pug"]);
@@ -71,5 +74,5 @@ gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
 });
 
 gulp.task('build', function(done){
-  runSequence(['pug', 'sass'], ['img-copy', 'fonts-copy', 'pdf-copy'], ['scripts']);
+  runSequence(['pug', 'sass'], ['img-copy', 'fonts-copy', 'pdf-copy', 'js-copy'], ['scripts']);
 });
