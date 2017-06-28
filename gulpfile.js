@@ -42,6 +42,8 @@ gulp.task('scripts', function() {
     .pipe(rename('scripts.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js/'))
+    gulp.src('assets/js/**/*.js')
+    .pipe(gulp.dest('_site/assets/js'));
     browserSync.reload();
 });
 
