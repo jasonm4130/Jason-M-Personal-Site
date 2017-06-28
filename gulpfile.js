@@ -15,14 +15,14 @@ gulp.task('sass', function(){
         .pipe(sass({errLogToConsole: true, outputStyle: 'compresses'}).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(autoprefixer({browsers: ['last 2 versions', '> 5%', 'Firefox ESR']}))
-        .pipe(gulp.dest('assets/css'))
+        .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('browser-sync', function(){
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "_site"
         }
     });
 });
@@ -30,7 +30,7 @@ gulp.task('browser-sync', function(){
 gulp.task('pug', function(){
     return gulp.src('assets/pugfiles/**/*.pug')
     .pipe(pug())
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('_site'))
 });
 
 gulp.task('scripts', function() {
@@ -41,8 +41,23 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('assets/js/'))
     .pipe(rename('scripts.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('assets/js/'))
+    .pipe(gulp.dest('_site/assets/js/'))
     browserSync.reload();
+});
+
+gulp.task('img-copy', function() {
+    gulp.src('assets/img/**/*')
+    .pipe(gulp.dest('_site/assets/img'));
+});
+
+gulp.task('fonts-copy', function() {
+    gulp.src('assets/fonts/**/*')
+    .pipe(gulp.dest('_site/fonts/img'));
+});
+
+gulp.task('pdf-copy', function() {
+    gulp.src('assets/**/*.pdf')
+    .pipe(gulp.dest('_site/assets'));
 });
 
 gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
@@ -54,5 +69,5 @@ gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
 });
 
 gulp.task('build', function(done){
-  runSequence(['pug', 'sass'], ['scripts']);
+  runSequence(['pug', 'sass'], ['img-copy', 'fonts-copy', 'pdf-copy'], ['scripts']);
 });
