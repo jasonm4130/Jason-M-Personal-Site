@@ -65,12 +65,15 @@ gulp.task('js-copy', function() {
     .pipe(gulp.dest('_site/assets/js'));
 });
 
-gulp.task('default', ['pug', 'sass', 'scripts', 'browser-sync'], function(){
+gulp.task('default', ['pug', 'sass', 'scripts', "img-copy", "fonts-copy", "pdf-copy", "js-copy", 'browser-sync'], function(){
     gulp.watch(["assets/sass/**/*.sass", "assets/sass/**/*.css"], ["sass"]);
     gulp.watch("assets/pugfiles/**/*.pug", ["pug"]);
-    gulp.watch(["assets/js/**/*.js", "assets/js/*.js"], ["scripts"]);
-    gulp.watch("./*.html", browserSync.reload);
-    gulp.watch("assets/js/**/*.js", browserSync.reload);
+    gulp.watch(["assets/js/**/*.js", "assets/js/*.js"], ["scripts", "js-copy"]);
+    gulp.watch(["assets/fonts/**/*"], ["fonts-copy"]);
+    gulp.watch(["assets/img/**/*"], ["img-copy"]);
+    gulp.watch(["assets/**/*.pdf"], ["pdf-copy"]);
+    gulp.watch("_site/*.html", browserSync.reload);
+    gulp.watch("_site/assets/js/**/*.js", browserSync.reload);
 });
 
 gulp.task('build', function(done){
